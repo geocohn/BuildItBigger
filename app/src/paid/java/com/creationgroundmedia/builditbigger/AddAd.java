@@ -1,18 +1,18 @@
 package com.creationgroundmedia.builditbigger;
 
 /**
- * Created by geo on 3/1/16.
+ * Created by George Cohn on 3/1/16.
+ * This is a stub for the paid version
+ * so that it doesn't show an interstitial ad
  */
 
 import android.content.Context;
 
-/**
- * Created by geo on 2/29/16.
- */
 public class AddAd {
     public AddAd(Context context) {
     }
 
-    public void show() {
+    public void show(AdFollower adFollower) {
+        adFollower.setAdClosed();
     }
 }

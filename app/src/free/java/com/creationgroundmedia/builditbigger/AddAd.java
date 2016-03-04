@@ -7,10 +7,12 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 /**
- * Created by geo on 3/1/16.
+ * Created by George Cohn on 3/1/16.
+ * This class shows an interstitial ad
  */
 public class AddAd {
     private final InterstitialAd mInterstitialAd;
+    private AdFollower mAdFollower;
 
     public AddAd(Context context) {
         mInterstitialAd = new InterstitialAd(context);
@@ -20,12 +22,14 @@ public class AddAd {
             @Override
             public void onAdClosed() {
                 requestNewInterstitial();
+                mAdFollower.setAdClosed();
             }
         });
 
         requestNewInterstitial();
     }
-    public void show() {
+    public void show(AdFollower adFollower) {
+        mAdFollower = adFollower;
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         }
