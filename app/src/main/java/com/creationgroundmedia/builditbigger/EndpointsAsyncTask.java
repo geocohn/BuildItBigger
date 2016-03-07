@@ -14,13 +14,13 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import java.io.IOException;
 
 /**
- * Created by geo on 3/2/16.
+ * Created by George Cohn on 3/2/16.
+ * Retrieves a joke from the server and delivers it asynchronously via AdFollower
  */
-public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static final String LOG_TAG = EndpointsAsyncTask.class.getSimpleName();
     private static MyApi jokeApiService = null;
     private final AdFollower mAdFollower;
-    private Context mContext;
 
     public EndpointsAsyncTask(AdFollower adFollower) {
         mAdFollower = adFollower;
@@ -48,7 +48,7 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
             jokeApiService = builder.build();
         }
 
-        mContext = params[0].first;
+        Context context = params[0].first;
         String name = params[0].second;
 
         try {
@@ -56,7 +56,8 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
             return jokeApiService.sayHi("howdy").execute().getData();
         } catch (IOException e) {
 //            Log.d(LOG_TAG, "Catching IO exception");
-            return e.getMessage();
+//            return e.getMessage();
+            return null;
         }
     }
 

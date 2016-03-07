@@ -18,6 +18,24 @@ allprojects {
     }
 }
 
+task runAndroidTestsRun {
+}
+runAndroidTestsRun.dependsOn 'app:connectedAndroidTest'
+runAndroidTestsRun.dependsOn 'showjokelib:connectedAndroidTest'
+
+task runAndroidTestsStart {
+    dependsOn 'jokebackend:appengineRun'
+    project(":jokebackend").afterEvaluate { backend ->
+        backend.extensions.appengine.daemon = true
+    }  
+}
+runAndroidTestsStart.finalizedBy 'runAndroidTestsRun'
+
+task runAndroidTests {
+    dependsOn 'runAndroidTestsStart'
+}
+runAndroidTests.finalizedBy 'jokebackend:appengineStop'
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

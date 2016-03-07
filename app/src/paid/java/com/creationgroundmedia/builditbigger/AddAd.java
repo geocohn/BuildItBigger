@@ -8,7 +8,7 @@ package com.creationgroundmedia.builditbigger;
 
 import android.content.Context;
 
-public class AddAd {
+class AddAd {
     public AddAd(Context context) {
     }
 

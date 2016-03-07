@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class ShowJoke extends AppCompatActivity {
-    public static String JOKETEXT = "Joke Text";
+    public static final String JOKETEXT = "Joke Text";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,11 +14,11 @@ import com.creationgroundmedia.showjokelib.ShowJoke;
  * when and only when the joke has been delivered
  * and the ad (if any) has been closed.
  */
-public class AdFollower {
+class AdFollower {
     private final ProgressBar mSpinner;
-    Context mContext;
-    String mJoke = null;
-    boolean mAdClosed = false;
+    private final Context mContext;
+    private String mJoke = null;
+    private boolean mAdClosed = false;
 
     AdFollower(Context context, ProgressBar spinner) {
         mContext = context;

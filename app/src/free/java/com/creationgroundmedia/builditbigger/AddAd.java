@@ -10,7 +10,7 @@ import com.google.android.gms.ads.InterstitialAd;
  * Created by George Cohn on 3/1/16.
  * This class shows an interstitial ad
  */
-public class AddAd {
+class AddAd {
     private final InterstitialAd mInterstitialAd;
     private AdFollower mAdFollower;
 
